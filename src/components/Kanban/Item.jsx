@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { white } from "theme/colors";
+import Card from "./Card";
 
 const Item = ({ content, ...rest }) => {
   return (
@@ -10,10 +10,5 @@ const Item = ({ content, ...rest }) => {
     </Card>
   );
 };
-
-const Card = styled.article`
-  background-color: ${white};
-  display: block;
-`;
 
 export default Item;

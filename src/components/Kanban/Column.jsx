@@ -16,7 +16,9 @@ const Column = ({ className, items, title }) => {
 };
 
 const StyledColumn = styled(Column)`
-  background-color: ${gray[30]};
+  background-color: ${gray[20]};
+  border-radius: 4px;
+  border: 1px solid ${gray[30]}
   padding: 0.5rem;
 `;
 

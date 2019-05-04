@@ -9,6 +9,22 @@ const initialData = [
       { content: "I am the second item" },
       { content: "I am the third item" }
     ]
+  },
+  {
+    title: "inprogress",
+    items: [
+      { content: "I am the first item" },
+      { content: "I am the second item" },
+      { content: "I am the third item" }
+    ]
+  },
+  {
+    title: "completed",
+    items: [
+      { content: "I am the first item" },
+      { content: "I am the second item" },
+      { content: "I am the third item" }
+    ]
   }
 ];
 

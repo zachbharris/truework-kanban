@@ -1,10 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import Column from "./Column";
 
-const Kanban = ({ columns }) => {
-  return columns.map((col, index) => {
-    return <Column items={col.items} title={col.title} key={index} />;
-  });
+const Kanban = ({ className, columns }) => {
+  return (
+    <section className={className}>
+      {columns.map((col, index) => {
+        return <Column items={col.items} title={col.title} key={index} />;
+      })}
+    </section>
+  );
 };
 
-export default Kanban;
+const StyledKanban = styled(Kanban)`
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 353px;
+  grid-gap: 1rem;
+  overflow-x: auto;
+`;
+
+export default StyledKanban;
