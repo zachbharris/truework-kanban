@@ -1,13 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { useActions } from "easy-peasy";
 import Column from "./Column";
 
+import { gray } from "theme/colors";
+
 const Kanban = ({ className, columns }) => {
+  const addCol = useActions(actions => actions.kanban.addColumn);
   return (
     <section className={className}>
       {columns.map((col, index) => {
-        return <Column items={col.items} title={col.title} key={index} />;
+        return <Column {...col} key={index} />;
       })}
+      <AddColumn onClick={() => addCol("text")}>
+        <i className="far fa-plus" /> Add Column
+      </AddColumn>
     </section>
   );
 };
@@ -17,9 +24,16 @@ const StyledKanban = styled(Kanban)`
   grid-auto-flow: column;
   grid-auto-columns: 353px;
   grid-gap: 1rem;
-  overflow-x: auto;
 
   padding: 1rem;
+`;
+
+const AddColumn = styled.button`
+  background-color: transparent;
+  border: 1px dashed ${gray[30]};
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
 `;
 
 export default StyledKanban;

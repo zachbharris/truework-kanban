@@ -27,6 +27,10 @@ const StyledCard = styled(Card)`
   border-radius: 0.25rem;
   border: 1px solid ${gray[30]};
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
 export default StyledCard;
