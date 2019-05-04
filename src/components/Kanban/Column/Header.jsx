@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Label } from "components";
-import { useActions, useStore } from "easy-peasy";
+import { useActions } from "easy-peasy";
 
 const ColumnHeader = ({ className, columnId, count, title, toggle }) => {
   const remCol = useActions(actions => actions.kanban.removeColumn);

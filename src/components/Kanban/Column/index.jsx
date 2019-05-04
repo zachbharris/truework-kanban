@@ -25,7 +25,7 @@ const Column = ({ className, id, items, title }) => {
         title={title}
         columnId={id}
       />
-      {state.addItem ? <AddItem toggle={toggleAddItem} /> : null}
+      {state.addItem ? <AddItem columnId={id} toggle={toggleAddItem} /> : null}
       <ItemsWrapper>
         {items.map((item, index) => {
           return <Item {...item} columnId={id} key={index} />;
