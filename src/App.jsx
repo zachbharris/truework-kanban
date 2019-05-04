@@ -2,19 +2,30 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import Routes from "./routes";
+import Routes from "routes";
 import { gray, primary } from "theme/colors";
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={{ mode: "light" }}>
       <>
+        <GlobalStyle />
         <Typeography />
         <BrowserRouter children={<Routes />} />
       </>
     </ThemeProvider>
   );
-}
+};
+
+const GlobalStyle = createGlobalStyle`
+  html, body {
+    height: 100%;
+  }
+
+  #root {
+    height: 100%;
+  }
+`;
 
 const Typeography = createGlobalStyle`
   body {
@@ -75,8 +86,9 @@ const Typeography = createGlobalStyle`
     text-transform: uppercase;
   }
   label, .label {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.25px;
+    font-weight: 500;
   }
   button {
     font-size: 0.875rem;

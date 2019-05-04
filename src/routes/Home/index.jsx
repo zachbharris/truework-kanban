@@ -1,37 +1,15 @@
 import React from "react";
+import { useStore } from "easy-peasy";
 import { Kanban, Layout } from "components";
 
-const initialData = [
-  {
-    title: "todo",
-    items: [
-      { content: "I am the first item" },
-      { content: "I am the second item" },
-      { content: "I am the third item" }
-    ]
-  },
-  {
-    title: "inprogress",
-    items: [
-      { content: "I am the first item" },
-      { content: "I am the second item" },
-      { content: "I am the third item" }
-    ]
-  },
-  {
-    title: "completed",
-    items: [
-      { content: "I am the first item" },
-      { content: "I am the second item" },
-      { content: "I am the third item" }
-    ]
-  }
-];
-
-const Home = () => (
-  <Layout>
-    <Kanban columns={initialData} />
-  </Layout>
-);
+const Home = () => {
+  const data = useStore(state => state.kanban);
+  return (
+    <Layout>
+      <h1 style={{ flexGrow: 1 }}>Kanban Board</h1>
+      <Kanban columns={data} />
+    </Layout>
+  );
+};
 
 export default Home;
