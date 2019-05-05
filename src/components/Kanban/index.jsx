@@ -7,12 +7,17 @@ import { gray } from "theme/colors";
 
 const Kanban = ({ className, columns }) => {
   const addCol = useActions(actions => actions.kanban.addColumn);
+  const handleColumnAddition = () => {
+    const prompt = window.prompt("Enter Column Name", "New Column");
+    if (prompt) return addCol(prompt);
+    return false;
+  };
   return (
     <section className={className}>
       {columns.map((col, index) => {
         return <Column {...col} key={index} />;
       })}
-      <AddColumn onClick={() => addCol("text")}>
+      <AddColumn onClick={handleColumnAddition}>
         <i className="far fa-plus" /> Add Column
       </AddColumn>
     </section>

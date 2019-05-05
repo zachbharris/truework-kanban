@@ -45,13 +45,41 @@ export default {
       const newItem = { id: randomstring.generate(), content };
       state.data.find(col => col.id === columnId).items.push(newItem);
     }),
+    addNewDefaultItem: action((state, payload) => {
+      // payload expects new item content and column id
+      const newItem = { id: randomstring.generate(), content: payload };
+      state.data[0].items.push(newItem);
+    }),
     removeItem: action((state, payload) => {
-      return {
-        ...state,
-        data: state.data[payload.columnId].items.filter(
-          item => item.id !== payload.itemId
-        )
-      };
+      const { columnId, itemId } = payload;
+      const colIndex = state.data.findIndex(col => col.id === columnId);
+      const updatedItems = state.data
+        .find(col => col.id === columnId)
+        .items.filter(item => item.id !== itemId);
+
+      state.data[colIndex].items = updatedItems;
+    }),
+    moveItemLeft: action((state, payload) => {
+      const { columnId, currentColumnIndex, itemId } = payload;
+      const item = state.data
+        .find(col => col.id === columnId)
+        .items.filter(item => item.id === itemId);
+
+      state.data[currentColumnIndex - 1].items.push(...item);
+      state.data[currentColumnIndex].items = state.data
+        .find(col => col.id === columnId)
+        .items.filter(item => item.id !== itemId);
+    }),
+    moveItemRight: action((state, payload) => {
+      const { columnId, currentColumnIndex, itemId } = payload;
+      const item = state.data
+        .find(col => col.id === columnId)
+        .items.filter(item => item.id === itemId);
+
+      state.data[currentColumnIndex + 1].items.push(...item);
+      state.data[currentColumnIndex].items = state.data
+        .find(col => col.id === columnId)
+        .items.filter(item => item.id !== itemId);
     })
   }
 };

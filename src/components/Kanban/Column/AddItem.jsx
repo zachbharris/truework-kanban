@@ -7,14 +7,14 @@ import { success, successSmooth, gray, white } from "theme/colors";
 const AddItem = ({ className, columnId, toggle }) => {
   const [text, set] = useState("");
   const addItem = useActions(actions => actions.kanban.addItem);
+  const handleAddItem = async () => {
+    await addItem({ columnId, content: text });
+    set("");
+  };
   return (
     <div className={className}>
       <textarea value={text} onChange={e => set(e.target.value)} />
-      <Button
-        disabled={text.length === 0}
-        onClick={() => addItem({ columnId, content: text })}
-        success
-      >
+      <Button disabled={text.length === 0} onClick={handleAddItem} success>
         Add Item
       </Button>
       <Button onClick={toggle}>Cancel</Button>

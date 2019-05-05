@@ -6,6 +6,11 @@ import { useActions } from "easy-peasy";
 
 const ColumnHeader = ({ className, columnId, count, title, toggle }) => {
   const remCol = useActions(actions => actions.kanban.removeColumn);
+  const handleDelete = () => {
+    const conf = window.confirm(`Are you sure you want to delete "${title}"?`);
+    if (conf === true) return remCol(columnId);
+    return false;
+  };
   return (
     <header className={className}>
       <Label content={count} />
@@ -13,7 +18,7 @@ const ColumnHeader = ({ className, columnId, count, title, toggle }) => {
       <button onClick={toggle}>
         <i className="far fa-plus" />
       </button>
-      <button onClick={() => remCol(columnId)}>
+      <button onClick={handleDelete}>
         <i className="far fa-trash" />
       </button>
     </header>
