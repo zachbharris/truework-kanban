@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { useStore, useActions } from "easy-peasy";
 
 import Card from "./Card";

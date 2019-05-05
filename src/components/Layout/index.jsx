@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// simple layout component
 const Layout = props => {
   const { children, className } = props;
   return <div className={className} children={children} />;

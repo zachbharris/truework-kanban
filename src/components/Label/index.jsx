@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 import { info, infoSmooth } from "theme/colors";
 
+/**
+ * Label component
+ * @param {*} content
+ */
 const Label = ({ children, className, content }) => {
   return (
     <span className={className + " label"} children={children || content} />

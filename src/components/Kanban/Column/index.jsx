@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useActions } from "easy-peasy";
 
 import Item from "../Item";
 
