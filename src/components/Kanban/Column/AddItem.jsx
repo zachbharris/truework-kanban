@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useActions } from "easy-peasy";
 
-import { success, successSmooth, gray, white } from "theme/colors";
+import { success, successSmooth, gray } from "theme/colors";
 
 const AddItem = ({ className, columnId, toggle }) => {
   const [text, set] = useState("");
