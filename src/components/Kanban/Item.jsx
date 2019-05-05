@@ -17,7 +17,7 @@ const Item = ({ columnId, content, id }) => {
     <Card>
       <p>{content}</p>
       <button onClick={() => remItem({ columnId, itemId: id })}>
-        <i className="far fa-trash" />
+        <i className="fas fa-trash" />
       </button>
       <button
         disabled={currentColumnIndex === 0}
@@ -25,7 +25,7 @@ const Item = ({ columnId, content, id }) => {
           moveItemLeft({ currentColumnIndex, columnId, itemId: id })
         }
       >
-        <i className="far fa-arrow-left" />
+        <i className="fas fa-arrow-left" />
       </button>
       <button
         disabled={currentColumnIndex === totalColumns - 1}
@@ -33,7 +33,7 @@ const Item = ({ columnId, content, id }) => {
           moveItemRight({ currentColumnIndex, columnId, itemId: id })
         }
       >
-        <i className="far fa-arrow-right" />
+        <i className="fas fa-arrow-right" />
       </button>
     </Card>
   );

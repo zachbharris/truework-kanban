@@ -16,10 +16,10 @@ const ColumnHeader = ({ className, columnId, count, title, toggle }) => {
       <Label content={count} />
       <h1 className="label">{title}</h1>
       <button onClick={toggle}>
-        <i className="far fa-plus" />
+        <i className="fas fa-plus" />
       </button>
       <button onClick={handleDelete}>
-        <i className="far fa-trash" />
+        <i className="fas fa-trash" />
       </button>
     </header>
   );

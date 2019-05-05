@@ -18,7 +18,7 @@ const Kanban = ({ className, columns }) => {
         return <Column {...col} key={index} />;
       })}
       <AddColumn onClick={handleColumnAddition}>
-        <i className="far fa-plus" /> Add Column
+        <i className="fas fa-plus" /> Add Column
       </AddColumn>
     </section>
   );
